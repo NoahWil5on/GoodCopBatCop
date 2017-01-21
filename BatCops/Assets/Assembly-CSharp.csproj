@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\EnemyFlash.cs" />
      <Compile Include="Assets\Scripts\SimpleMove.cs" />
+     <Compile Include="Assets\Scripts\Wander.cs" />
      <Compile Include="Assets\SonarFx\SonarFx.cs" />
      <Compile Include="Assets\SonarFx\SonarFxSwitcher.cs" />
      <Compile Include="Assets\SonarFxTest.cs" />
