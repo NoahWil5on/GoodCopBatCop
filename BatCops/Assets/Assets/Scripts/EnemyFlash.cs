@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyFlash : MonoBehaviour {
 	public GameObject enemy;
+
 	public Texture2D texSaver;
 	Texture2D tex;
 	Texture2D holder;
@@ -12,24 +13,36 @@ public class EnemyFlash : MonoBehaviour {
 	Color[] colors;
 
 	int stage;
-
-	MaterialPropertyBlock pBlock;
-
+	float timer;
+	float delay;
+	bool flash;
 	// Use this for initialization
 	void Start () {
+		tex = new Texture2D(texSaver.width,texSaver.height);
+		tex.SetPixels(texSaver.GetPixels());
+
 		GetComponent<MeshRenderer>().material.mainTexture = tex;
 		colorhold = tex.GetPixels();
-		tex = new Texture2D(texSaver.width,texSaver.height);
-		tex = texSaver;
 		holder = tex;
 		stage = 0;
+		timer = .02f;
+		flash = false;
 	}
 	// Update is called once per frame
 	void Update () {
-		Flash();
+		delay += Time.deltaTime;
 
+		if(delay > 2){
+			print("flash");
+			delay = 0;
+			stage = 0;
+			flash = true;
+		}
+
+		if(flash)
+			flash = Flash();
 	}
-	void Flash(){
+	bool Flash(){
 		if(stage == 0){
 			colors = tex.GetPixels();
 			//colors = GetComponent<MeshRenderer>().material.mainTexture.
@@ -39,7 +52,7 @@ public class EnemyFlash : MonoBehaviour {
 			tex.SetPixels(colors);
 			tex.Apply();
 			stage++;
-			return;
+			return true;
 		}
 		bool change = false;
 		if(stage == 1){
@@ -53,19 +66,19 @@ public class EnemyFlash : MonoBehaviour {
 				float b = colors[i].b;
 				float bh = colorhold[i].b;
 				if(a > ah){
-					a -= .02f;
+					a -= timer;
 					change = true;
 				}
 				if(r > rh){
-					r -= .02f;
+					r -= timer;
 					change = true;
 				}
 				if(g > gh){
-					g -= .02f;
+					g -= timer;
 					change = true;
 				}
 				if(b > bh){
-					b -= .02f;
+					b -= timer;
 					change = true;
 				}
 				colors[i] = new Color(r,g,b,a);
@@ -73,8 +86,9 @@ public class EnemyFlash : MonoBehaviour {
 			tex.SetPixels(colors);
 			tex.Apply();
 			if(!change){
+				colors = colorhold;
 				stage++;
-				return;
+				return true;
 			}
 		}
 		if(stage == 2){
@@ -83,19 +97,28 @@ public class EnemyFlash : MonoBehaviour {
 				float g = colors[i].g;
 				float b = colors[i].b;
 				float a = colors[i].a;
-				if(r-.1f > 0){
-					r -= .1f;
+				if(r-timer > 0){
+					change = true;
+					r -= timer;
 				}
-				if(g-.1f > 0){
-					g -= .1f;
+				if(g-timer > 0){
+					change = true;
+					g -= timer;
 				}
-				if(b-.1f > 0){
-					b -= .1f;
+				if(b-timer > 0){
+					change = true;
+					b -= timer;
 				}
 				colors[i] = new Color(r,g,b,a);		
+				if(!change){
+					colors[i] = new Color(0,0,0,0);	
+				}
 			}
 			tex.SetPixels(colors);
-			tex.Apply();	
+			tex.Apply();
+			if(!change)
+				return false;
 		}
+		return true;
 	}
 }
