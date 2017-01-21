@@ -1,9 +1,9 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\SimpleMove.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CameraMovement.cs">
     <Files>
-      <File FileName="Assets\Scripts\CameraMovement.cs" Line="27" Column="64" />
-      <File FileName="Assets\Scripts\SimpleMove.cs" Line="17" Column="63" />
+      <File FileName="Assets\Scripts\CameraMovement.cs" Line="18" Column="36" />
+      <File FileName="Assets\Scripts\SimpleMove.cs" Line="18" Column="18" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
