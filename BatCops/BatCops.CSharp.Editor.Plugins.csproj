@@ -55,9 +55,6 @@
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Advertisements">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Advertisements.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.Advertisements">
       <HintPath>Library\UnityAssemblies\UnityEditor.Advertisements.dll</HintPath>
     </Reference>
@@ -100,9 +97,6 @@
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Purchasing">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Purchasing.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.VR">
       <HintPath>Library\UnityAssemblies\UnityEditor.VR.dll</HintPath>
     </Reference>
@@ -123,6 +117,10 @@
     <ProjectReference Include="BatCops.CSharp.Plugins.csproj">
       <Project>{01D4DCB8-AD36-5DD1-B305-F7B33BB1EE04}</Project>
       <Name>BatCops.CSharp.Plugins</Name>
+    </ProjectReference>
+    <ProjectReference Include="BatCops.CSharp.csproj">
+      <Project>{711A6340-1DE3-11E4-4826-BDFE6A42485A}</Project>
+      <Name>BatCops.CSharp</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
