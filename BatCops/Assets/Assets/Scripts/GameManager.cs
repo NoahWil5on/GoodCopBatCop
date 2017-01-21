@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour {
     private List<GameObject> exitPoints;
 
     // Keeps track of Vehicle class for Robber Rat
-    private Wander robberWander;
+    private Vehicle robberWander;
     private int find;
 
     //------------------------------------------------------------------------------>>CONSTRUCTOR<<
@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour {
 
         find = 0;
 
-        robberWander = robberRat.GetComponent<Wander>();
+        //robberWander = robberRat.GetComponent<Wander1>();
 	}
 	
 	// Update is called once per frame

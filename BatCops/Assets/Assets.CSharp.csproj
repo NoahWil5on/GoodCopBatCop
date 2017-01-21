@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\SimpleMove.cs" />
     <Compile Include="Assets\Scripts\Vehicle.cs" />
     <Compile Include="Assets\Scripts\Wander.cs" />
+    <Compile Include="Assets\Scripts\Wander1.cs" />
     <Compile Include="Assets\SonarFx\SonarFx.cs" />
     <Compile Include="Assets\SonarFx\SonarFxSwitcher.cs" />
     <Compile Include="Assets\SonarFxTest.cs" />

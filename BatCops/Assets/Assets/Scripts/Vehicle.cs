@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 [RequireComponent(typeof(CharacterController))]
 
-public class Vehicle : MonoBehaviour
+abstract public class Vehicle : MonoBehaviour
 {
 
     //------------------------------------------------------------------------------>>FIELDS<<
@@ -61,7 +61,7 @@ public class Vehicle : MonoBehaviour
     }
 
     //------------------------------------------------------------------------------>>CONSTRUCTOR<<
-    public void Start()
+    virtual public void Start()
     {
         // Vehicle
         acceleration = Vector3.zero;
@@ -77,7 +77,7 @@ public class Vehicle : MonoBehaviour
 
     //------------------------------------------------------------------------------>>UPDATE
     // Update is called once per frame
-    protected void Update()
+    virtual protected void Update()
     {
         //calculate all necessary steering forces
         CalcSteeringForces();
@@ -130,8 +130,8 @@ public class Vehicle : MonoBehaviour
         return desired;
     }
 
-    // Avoid
-    protected Vector3 Avoid(Vector3 targetPos)
+    // Flee
+    protected Vector3 Flee(Vector3 targetPos)
     {
         desired = Seek(targetPos);
         return -desired;
