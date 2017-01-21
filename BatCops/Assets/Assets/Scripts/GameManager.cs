@@ -8,9 +8,11 @@ public class GameManager : MonoBehaviour {
     // Robber Rat
     public GameObject robberRat;
 
-    // Array of all exit points the Rat Thief is going for
+    // Array of all exit points the Robber Thief is going for
     private List<GameObject> exitPoints;
 
+    // Keeps track of Vehicle class for Robber Rat
+    private Wander robberWander;
     private int find;
 
     //------------------------------------------------------------------------------>>CONSTRUCTOR<<
@@ -25,12 +27,16 @@ public class GameManager : MonoBehaviour {
 
         find = 0;
 
-        robberRat.GetComponent<Vehicle>();
+        robberWander = robberRat.GetComponent<Wander>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
         float dist = Vector3.Distance(robberRat.transform.position, exitPoints[find].transform.position);
-        //if () ;
+        if(find > exitPoints.Count - 1)
+        {
+            find = 0;
+        }
+
     }
 }
