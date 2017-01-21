@@ -39,6 +39,8 @@ public class ProjectorScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        Vector3 vec3 = new Vector3(SimpleMove.instance.transform.position.x, 7, SimpleMove.instance.transform.position.z);
+        transform.position = vec3;
         if (powered)
         {
             if (up)
