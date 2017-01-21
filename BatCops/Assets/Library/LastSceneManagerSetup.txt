@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Scenes/Batcops.unity
+- path: Assets/Scenes/Batcops.unity
   isLoaded: 1
   isActive: 1
