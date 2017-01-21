@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyFlash : MonoBehaviour {
 	public GameObject enemy;
+
 	public Texture2D texSaver;
 	Texture2D tex;
 	Texture2D holder;
@@ -12,37 +13,72 @@ public class EnemyFlash : MonoBehaviour {
 	Color[] colors;
 
 	int stage;
-
-	MaterialPropertyBlock pBlock;
-
+	float timer;
+	float delay;
+	float flashDelay;
+	bool flash;
 	// Use this for initialization
 	void Start () {
-		GetComponent<MeshRenderer>().material.mainTexture = tex;
-		colorhold = tex.GetPixels();
 		tex = new Texture2D(texSaver.width,texSaver.height);
-		tex = texSaver;
+		tex.SetPixels(texSaver.GetPixels());
+
+		GetComponent<MeshRenderer>().material.mainTexture = tex;
+		colorhold = texSaver.GetPixels();
 		holder = tex;
 		stage = 0;
+		flashDelay = 0;
+		timer = .01f;
+		flash = false;
+		colors = tex.GetPixels();
+		for(int i = 0; i < colors.Length; i++){
+			colors[i] = new Color(0,0,0,0);
+		}
+		tex.SetPixels(colors);
+		tex.Apply();
 	}
 	// Update is called once per frame
 	void Update () {
-		Flash();
+		delay += Time.deltaTime;
 
+		//if(delay > 4){
+		//	delay = 0;
+		//	stage = 0;
+		//	flash = true;
+		//}
+
+		if(flash)
+			flash = Flash();
 	}
-	void Flash(){
+    public void Temp()
+    {
+        Debug.Log("Test");
+        stage = 0;
+        flash = true;
+    }
+    void OnCollisionExit(Collision col)
+    {
+        //flash = false;
+    }
+	bool Flash(){
+		//stage 1 sets all colors white
 		if(stage == 0){
 			colors = tex.GetPixels();
-			//colors = GetComponent<MeshRenderer>().material.mainTexture.
 			for(int i = 0; i < colors.Length; i++){
 				colors[i] = new Color(1,1,1,1);
 			}
+			flashDelay++;
 			tex.SetPixels(colors);
 			tex.Apply();
-			stage++;
-			return;
+			if(flashDelay > 10){
+				flashDelay = 0;
+				stage++;
+			}
+			return true;
 		}
 		bool change = false;
+		//stage 2 slowly brings all pixels back to their original color
 		if(stage == 1){
+			colorhold = texSaver.GetPixels();
 			for(int i = 0; i < colors.Length; i++){
 				float a = colors[i].a;
 				float ah = colorhold[i].a;
@@ -53,19 +89,19 @@ public class EnemyFlash : MonoBehaviour {
 				float b = colors[i].b;
 				float bh = colorhold[i].b;
 				if(a > ah){
-					a -= .02f;
+					a -= timer;
 					change = true;
 				}
 				if(r > rh){
-					r -= .02f;
+					r -= timer;
 					change = true;
 				}
 				if(g > gh){
-					g -= .02f;
+					g -= timer;
 					change = true;
 				}
 				if(b > bh){
-					b -= .02f;
+					b -= timer;
 					change = true;
 				}
 				colors[i] = new Color(r,g,b,a);
@@ -73,8 +109,9 @@ public class EnemyFlash : MonoBehaviour {
 			tex.SetPixels(colors);
 			tex.Apply();
 			if(!change){
+				colors = colorhold;
 				stage++;
-				return;
+				return true;
 			}
 		}
 		if(stage == 2){
@@ -83,19 +120,28 @@ public class EnemyFlash : MonoBehaviour {
 				float g = colors[i].g;
 				float b = colors[i].b;
 				float a = colors[i].a;
-				if(r-.1f > 0){
-					r -= .1f;
+				if(r-timer > 0){
+					change = true;
+					r -= timer;
 				}
-				if(g-.1f > 0){
-					g -= .1f;
+				if(g-timer > 0){
+					change = true;
+					g -= timer;
 				}
-				if(b-.1f > 0){
-					b -= .1f;
+				if(b-timer > 0){
+					change = true;
+					b -= timer;
 				}
 				colors[i] = new Color(r,g,b,a);		
+				if(!change){
+					colors[i] = new Color(0,0,0,0);	
+				}
 			}
 			tex.SetPixels(colors);
-			tex.Apply();	
+			tex.Apply();
+			if(!change)
+				return false;
 		}
+		return true;
 	}
 }
