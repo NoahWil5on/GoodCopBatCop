@@ -1,0 +1,7 @@
+﻿Bat Cop How to Play
+
+
+You are Bat Cop! You have tracked Dirty Rat to his warehouse hideout, and now you have to catch him before he escapes. One problem… you’re blind as a bat! You have to navigate through echolocation to catch the rat before he reaches the exit.
+
+
+Hold <space? Mouse 1?> to charge your sonar pulse. The longer you hold, the bigger the pulse. But be careful, if Dirty Rat hears your squeak, he will get suspicious and run away. Use the arrow keys or WASD to move. Touch Dirty Rat to catch the crook.
