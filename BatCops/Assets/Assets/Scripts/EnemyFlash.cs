@@ -25,15 +25,14 @@ public class EnemyFlash : MonoBehaviour {
 		colorhold = tex.GetPixels();
 		holder = tex;
 		stage = 0;
-		timer = .02f;
+		timer = .01f;
 		flash = false;
 	}
 	// Update is called once per frame
 	void Update () {
 		delay += Time.deltaTime;
 
-		if(delay > 2){
-			print("flash");
+		if(delay > 4){
 			delay = 0;
 			stage = 0;
 			flash = true;
@@ -43,9 +42,9 @@ public class EnemyFlash : MonoBehaviour {
 			flash = Flash();
 	}
 	bool Flash(){
+		//stage 1 sets all colors white
 		if(stage == 0){
 			colors = tex.GetPixels();
-			//colors = GetComponent<MeshRenderer>().material.mainTexture.
 			for(int i = 0; i < colors.Length; i++){
 				colors[i] = new Color(1,1,1,1);
 			}
@@ -55,6 +54,7 @@ public class EnemyFlash : MonoBehaviour {
 			return true;
 		}
 		bool change = false;
+		//stage 2 slowly brings all pixels back to their original color
 		if(stage == 1){
 			for(int i = 0; i < colors.Length; i++){
 				float a = colors[i].a;
