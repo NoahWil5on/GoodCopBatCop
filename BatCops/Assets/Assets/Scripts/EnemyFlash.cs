@@ -15,6 +15,7 @@ public class EnemyFlash : MonoBehaviour {
 	int stage;
 	float timer;
 	float delay;
+	float flashDelay;
 	bool flash;
 	// Use this for initialization
 	void Start () {
@@ -22,11 +23,18 @@ public class EnemyFlash : MonoBehaviour {
 		tex.SetPixels(texSaver.GetPixels());
 
 		GetComponent<MeshRenderer>().material.mainTexture = tex;
-		colorhold = tex.GetPixels();
+		colorhold = texSaver.GetPixels();
 		holder = tex;
 		stage = 0;
+		flashDelay = 0;
 		timer = .01f;
 		flash = false;
+		colors = tex.GetPixels();
+		for(int i = 0; i < colors.Length; i++){
+			colors[i] = new Color(0,0,0,0);
+		}
+		tex.SetPixels(colors);
+		tex.Apply();
 	}
 	// Update is called once per frame
 	void Update () {
@@ -48,14 +56,19 @@ public class EnemyFlash : MonoBehaviour {
 			for(int i = 0; i < colors.Length; i++){
 				colors[i] = new Color(1,1,1,1);
 			}
+			flashDelay++;
 			tex.SetPixels(colors);
 			tex.Apply();
-			stage++;
+			if(flashDelay > 10){
+				flashDelay = 0;
+				stage++;
+			}
 			return true;
 		}
 		bool change = false;
 		//stage 2 slowly brings all pixels back to their original color
 		if(stage == 1){
+			colorhold = texSaver.GetPixels();
 			for(int i = 0; i < colors.Length; i++){
 				float a = colors[i].a;
 				float ah = colorhold[i].a;
