@@ -21,7 +21,7 @@ public class EnemyFlash : MonoBehaviour {
 	void Start () {
 		tex = new Texture2D(texSaver.width,texSaver.height);
 		tex.SetPixels(texSaver.GetPixels());
-
+        enemy = this.gameObject;
 		GetComponent<MeshRenderer>().material.mainTexture = tex;
 		colorhold = texSaver.GetPixels();
 		holder = tex;
