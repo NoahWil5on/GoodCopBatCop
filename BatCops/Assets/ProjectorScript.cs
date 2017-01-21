@@ -39,13 +39,20 @@ public class ProjectorScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        Vector3 vec3 = new Vector3(SimpleMove.instance.transform.position.x, 7, SimpleMove.instance.transform.position.z);
+        transform.position = vec3;
         if (powered)
         {
             if (up)
             {
                 myProj.orthographicSize += 0.05f;
 
-                if (myProj.orthographicSize >= poweredTime)
+                Collider[] cols = Physics.OverlapCapsule(SimpleMove.instance.transform.position, transform.position, myProj.orthographicSize, 1 << LayerMask.NameToLayer("Enemy"));
+                foreach(Collider col in cols)
+                {
+                    Debug.Log(col.gameObject.name);
+                }
+                if (myProj.orthographicSize >= poweredTime*1.5f)
                 {
                     up = false;
                 }
@@ -60,10 +67,12 @@ public class ProjectorScript : MonoBehaviour {
                     powered = false;
                 }
             }
-        }else
+        }
+        else
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
+                
                 poweredTimeStart = Time.time;
             }
             if (Input.GetKeyUp(KeyCode.Mouse0))
