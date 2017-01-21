@@ -40,15 +40,25 @@ public class EnemyFlash : MonoBehaviour {
 	void Update () {
 		delay += Time.deltaTime;
 
-		if(delay > 4){
-			delay = 0;
-			stage = 0;
-			flash = true;
-		}
+		//if(delay > 4){
+		//	delay = 0;
+		//	stage = 0;
+		//	flash = true;
+		//}
 
 		if(flash)
 			flash = Flash();
 	}
+    public void Temp()
+    {
+        Debug.Log("Test");
+        stage = 0;
+        flash = true;
+    }
+    void OnCollisionExit(Collision col)
+    {
+        //flash = false;
+    }
 	bool Flash(){
 		//stage 1 sets all colors white
 		if(stage == 0){
