@@ -6,37 +6,29 @@ public class GameManager : MonoBehaviour {
 
     //------------------------------------------------------------------------------>>FIELDS<<
     // Robber Rat
-    public GameObject robberRat;
+    public GameObject robberRat, RRPrefab;
 
-    // Array of all exit points the Robber Thief is going for
+    [SerializeField]
+    GameObject[] SpawnLocations;
+    // Array of all exit points the Rat Thief is going for
     private List<GameObject> exitPoints;
-
-    // Keeps track of Vehicle class for Robber Rat
-    private Vehicle robberWander;
-    private int find;
 
     //------------------------------------------------------------------------------>>CONSTRUCTOR<<
     // Use this for initialization
     void Start () {
+
         // Adds all exit points to a private array list - used for Rat Thief's pathfinding
         exitPoints = new List<GameObject>();
-        foreach(GameObject g in GameObject.FindGameObjectsWithTag("ExitPoint"))
+        foreach(GameObject g in GameObject.FindGameObjectsWithTag("SpawnPoint"))
         {
             exitPoints.Add(g);
         }
-
-        find = 0;
-
-        //robberWander = robberRat.GetComponent<Wander1>();
+		int randomSpawn = Random.Range(0,exitPoints.Count);
+		Instantiate(robberRat,exitPoints[randomSpawn].transform.position,Quaternion.identity);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        float dist = Vector3.Distance(robberRat.transform.position, exitPoints[find].transform.position);
-        if(find > exitPoints.Count - 1)
-        {
-            find = 0;
-        }
-
+        
     }
 }

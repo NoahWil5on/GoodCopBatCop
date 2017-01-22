@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: 36bcdfac9615a214480f0739c5e5cf9a
-timeCreated: 1484964233
+timeCreated: 1485043486
 licenseType: Pro
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - enemy: {instanceID: 0}
+  - texSaver: {fileID: 2800000, guid: 1cb7f7f7a086b1b4f9d77622d14e0436, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

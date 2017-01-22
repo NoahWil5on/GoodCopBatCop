@@ -1,8 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\CameraMovement.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\RobberRat Scripts\SpotPlayer.cs">
     <Files>
-      <File FileName="Assets\Scripts\CameraMovement.cs" Line="6" Column="19" />
+      <File FileName="Assets\Scripts\CameraMovement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\PauseBehavior.cs" Line="39" Column="68" />
+      <File FileName="Assets\Scripts\ProjectorScript.cs" Line="42" Column="1" />
+      <File FileName="Assets\Scripts\EnemyFlash.cs" Line="1" Column="1" />
+      <File FileName="Assets\Scripts\StupidFix.cs" Line="9" Column="5" />
+      <File FileName="Assets\Scripts\EndManager.cs" Line="15" Column="3" />
+      <File FileName="Assets\Scripts\RobberRat Scripts\SpotPlayer.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
