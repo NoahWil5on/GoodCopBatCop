@@ -74,7 +74,7 @@ public class SeekFlee : Wander {
         }
         else if(fsm == ratStates.flee)
         {
-            print("FSM: flee");
+ 
             Flee();
         }
         else if(fsm == ratStates.timedWander)
@@ -91,7 +91,7 @@ public class SeekFlee : Wander {
         else
         {
             print("FSM: seek");
-            Seek();
+            Seek(); 
         }
 		if(Mathf.Abs(Vector3.Magnitude(door.transform.position-transform.position)) < detectDist){
 			UnityEngine.SceneManagement.SceneManager.LoadScene("BadEnd");

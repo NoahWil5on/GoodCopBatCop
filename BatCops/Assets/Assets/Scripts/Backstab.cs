@@ -37,7 +37,7 @@ public class Backstab : MonoBehaviour {
         if (other.CompareTag("Enemy"))
         {
 
-            Debug.Log("EEEE");
+
             //UnityEngine.SceneManagement.SceneManager.LoadScene("DeadEnding");
             ratColl = true;
         }
