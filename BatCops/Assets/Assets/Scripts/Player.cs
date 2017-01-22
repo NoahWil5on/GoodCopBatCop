@@ -4,20 +4,30 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 	private GameObject enemy;
-	public float distanceDetect;
+    public GameObject backstab;
+    public float distanceDetect;
 	// Use this for initialization
 	void Start () {
 		enemy = GameObject.FindGameObjectWithTag("Enemy");
-	}
+        backstab = GameObject.FindGameObjectWithTag("Backstab");
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		while(!enemy){
-			enemy = GameObject.FindGameObjectWithTag("Enemy");
-		}
-		//print("Distance: " + Vector3.Magnitude(enemy.transform.position-transform.position));
-		if(Mathf.Abs(Vector3.Magnitude(enemy.transform.position-transform.position)) < distanceDetect){
-			UnityEngine.SceneManagement.SceneManager.LoadScene("GoodEnd");
-		}
+
 	}
+    void OnTriggerEnter(Collider coll)
+    {
+        if (!backstab.GetComponent<Backstab>().BackColl)
+        {
+            if(coll.CompareTag("Enemy") && backstab.GetComponent<Backstab>().RatColl == true)
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("DeadEnding");
+            }
+            else if (coll.CompareTag("Enemy") && backstab.GetComponent<Backstab>().RatColl==false)
+            {
+                UnityEngine.SceneManagement.SceneManager.LoadScene("GoodEnd");
+            }
+        }
+    }
 }

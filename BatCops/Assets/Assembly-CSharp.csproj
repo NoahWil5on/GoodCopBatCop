@@ -49,6 +49,7 @@
      <Compile Include="Assets\DialogueScript.cs" />
      <Compile Include="Assets\Reaktion\Utility\ConstantMotion.cs" />
      <Compile Include="Assets\Reaktion\Utility\JitterMotion.cs" />
+     <Compile Include="Assets\Scripts\Backstab.cs" />
      <Compile Include="Assets\Scripts\CameraMovement.cs" />
      <Compile Include="Assets\Scripts\EndManager.cs" />
      <Compile Include="Assets\Scripts\EnemyFlash.cs" />
@@ -60,10 +61,10 @@
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\ProjectorScript.cs" />
      <Compile Include="Assets\Scripts\RobberRat Scripts\RatCollider.cs" />
+     <Compile Include="Assets\Scripts\RobberRat Scripts\SeekFlee.cs" />
      <Compile Include="Assets\Scripts\RobberRat Scripts\SimpleMove.cs" />
      <Compile Include="Assets\Scripts\RobberRat Scripts\SpotPlayer.cs" />
      <Compile Include="Assets\Scripts\RobberRat Scripts\Wander.cs" />
-     <Compile Include="Assets\Scripts\RobberRat Scripts\Wander1.cs" />
      <Compile Include="Assets\Scripts\Vehicle.cs" />
      <Compile Include="Assets\SonarFx\SonarFx.cs" />
      <Compile Include="Assets\SonarFx\SonarFxSwitcher.cs" />

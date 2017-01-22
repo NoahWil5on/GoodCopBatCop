@@ -20,7 +20,7 @@ public class RatCollider : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            robberRat.GetComponent<Wander1>().Dead = true;
+            robberRat.GetComponent<SeekFlee>().Dead = true;
         }
     }
 }

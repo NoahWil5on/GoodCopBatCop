@@ -11,7 +11,7 @@ public enum ratStates
     seek
 }
 
-public class Wander1 : Wander {
+public class SeekFlee : Wander {
     
     private GameObject door;
     public GameObject fleeingTarget;
