@@ -22,7 +22,7 @@ public class Player : MonoBehaviour {
         {
             if(coll.CompareTag("Enemy") && backstab.GetComponent<Backstab>().RatColl == true)
             {
-                UnityEngine.SceneManagement.SceneManager.LoadScene("DeadEnding");
+                UnityEngine.SceneManagement.SceneManager.LoadScene("AltEnd");
             }
             else if (coll.CompareTag("Enemy") && backstab.GetComponent<Backstab>().RatColl==false)
             {
