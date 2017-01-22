@@ -60,7 +60,7 @@ public class DialogueScript : MonoBehaviour {
         }
         if (curClip >= 7)
         {
-            SceneManager.LoadScene("Main");
+            SceneManager.LoadScene("Warehouse");
         }
 	}
 }

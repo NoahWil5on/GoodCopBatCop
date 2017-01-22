@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\MenuScripts\DarkTimes.cs" />
      <Compile Include="Assets\Scripts\MenuScripts\PauseBehavior.cs" />
      <Compile Include="Assets\Scripts\MenuScripts\TitleBehavior.cs" />
+     <Compile Include="Assets\Scripts\MenuScripts\Warehouse.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\ProjectorScript.cs" />
      <Compile Include="Assets\Scripts\RobberRat Scripts\RatCollider.cs" />
