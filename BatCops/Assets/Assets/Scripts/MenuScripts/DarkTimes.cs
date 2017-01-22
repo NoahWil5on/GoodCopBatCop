@@ -15,7 +15,7 @@ public class DarkTimes : MonoBehaviour {
 			//Go To Next Scene
 
 			//To make game playable:
-			UnityEngine.SceneManagement.SceneManager.LoadScene("MapScene");
+			UnityEngine.SceneManagement.SceneManager.LoadScene("IntroScene");
 		}
 	}
 }

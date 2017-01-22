@@ -18,7 +18,7 @@ public class DialogueScript : MonoBehaviour {
     int curClip = 0;
 	// Use this for initialization
 	void Start () {
-		
+		text.text = strings[curClip];
 	}
 	
 	// Update is called once per frame
@@ -60,7 +60,7 @@ public class DialogueScript : MonoBehaviour {
         }
         if (curClip >= 7)
         {
-            SceneManager.LoadScene("Batcops");
+            SceneManager.LoadScene("Main");
         }
 	}
 }
